@@ -1,0 +1,13 @@
+# Step 1: Specify a BASE image
+FROM node:alpine
+WORKDIR '/app'
+
+# Step 2: Install dependancies
+COPY package.json . 
+RUN npm install
+
+# Step 3: Copy over everything else into WORKDIR
+COPY . .
+
+# Step 4: Default command
+CMD ["npm", "run", "start"]
